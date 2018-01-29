@@ -2,16 +2,18 @@
 //Crosby, John
 //jcrosby7
 #include <iostream>
+#include <vector>
 using namespace std;
 const int MAX = 100;
 int largestNumber(int[]);
-void print(int[], int);
+void print(int[], int, int);
 
 int main()
 {
-    int nums[MAX], x, y, big;
+    int nums[MAX], x, y, big, z;
     y = 0;
     x = 0;
+    z = 0;
     for(int i = 0; i < MAX; i++)
     {
         nums[i] = 0;
@@ -24,6 +26,7 @@ int main()
         {
             nums[y] = x;
             y++;
+            z++;
         }
         else if (x == 0)
         {
@@ -33,7 +36,7 @@ int main()
        
     } while(y < MAX);
     big = largestNumber(nums); 
-    print(nums, big);
+    print(nums, big, z);
     return 0;
 }
 
@@ -50,13 +53,13 @@ int largestNumber(int numbers[])
     return largest;
 }
 
-void print(int values[], int cols)
+void print(int values[], int cols, int z)
 {
-    char display[MAX][cols];
+    char display[z][cols];
     int pH; //Place holder display
     pH = cols; 
     //Fills up display with the proper char which is either a ' ' or an *.
-    for(int i = 0; i < MAX; i++)
+    for(int i = 0; i < z; i++)
     {
         for(int x = 0; x < cols; x++) 
         {
@@ -75,7 +78,7 @@ void print(int values[], int cols)
     //Displaying the array
     for(int y = 0; y < cols; y++)
     {
-        for(int x = 0; x < MAX; x++)
+        for(int x = 0; x < z; x++)
         {
             cout<<display[x][y];
         }
